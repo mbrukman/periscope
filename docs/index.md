@@ -5,7 +5,7 @@ Periscope
 
 *Periscope is a heuristic Hadoop scheduler you associate with a QoS profile. Built on YARN schedulers, cloud and VM resource management API's it allows you to associate SLA's to applications and customers.*
 
-## Overview
+##Overview
 
 The purpose of Periscope is to bring QoS to a multi-tenant Hadoop cluster, while allowing to apply SLA's to individual applications and customers.
 At [SequenceIQ](http://sequenceiq.com) working with multi-tenant Hadoop clusters for quite a while we have always seen the same frustration and fight for resource between users.
@@ -17,7 +17,7 @@ The queue hierarchy and resource allocation needs to be changed when new tenants
 
 Periscope was designed around the idea of `dynamic` clusters - without any need to preconfigure queues, cluster nodes or apply capacity planning ahead.
 
-## How it works
+##How it works
 
 Periscope monitors the application progress, the number of YARN containers/resources and their allocation on nodes, queue depths, and the number of nodes and their health.
 Since we have switched to YARN a while ago (been among the first adopters) we have run an open source [monitoring project](https://github.com/sequenceiq/yarn-monitoring), based on R.
@@ -31,6 +31,8 @@ Also note that a YARN cluster can run different applications - MR2, HBase, Spark
 When YARN allocates containers it associates `resources` - it's actually more predictable to let YARN to deal with the resource allocation, and have Periscope orchestrate the process._
 
 Periscope works with two types of Hadoop clusters: `static` and `dynamic`.
+
+##Clusters
 
 ### Static clusters
 From Periscope point of view we consider a cluster static when the cluster capacity can't be increased horizontally.
@@ -58,4 +60,7 @@ Given the option of provisioning or decommissioning cluster nodes on the fly, Pe
   6. *Private* cluster requests - supports provisioning of short lived private clusters with the possibility to merge
   7. Support for distributed (but not YARN ready) applications using Apache Slider
 
+##Applications
+
+##Policy
 
