@@ -63,4 +63,24 @@ Given the option of provisioning or decommissioning cluster nodes on the fly, Pe
 ##Applications
 
 ##Policy
+In order to horizontally scale up or down different policies can be applied at runtime. By default no policy is specified. A policy consists
+of different rules which will determine whether to add or remove nodes from an existing cluster. For this purpose Periscope will instruct
+Cloudbreak to launch new cloud instances and join them together or gracefully decommission them. Another benefit of using Cloudbreak is that in case of
+down scaling it will take care of the data loss as it is always a challenge not to mention that it will do it in a cost friendly manner.
+Rules can be added in different ways. There are pre-defined scale up/down rules which can be configured, but the main advantage of using Periscope
+is that you can provide your own implementation and without any classpath magic it can be used at runtime. The pre-defined rules are the following:
 
+* ResourcesBelowRule  
+  Computes the free resource rate of the cluster and if the rate is below the specified threshold it will add new nodes.
+* ResourcesAboveRule  
+  Computes the free resource rate of the cluster and if the rate is above the specified threshold it will remove nodes.
+* PendingAppsRule  
+  If the pending applications exceed a certain limit it will add new nodes.
+* PendingContainersRule  
+  If the pending containers(resource requests) exceed a certain limit based on the container/node rate it will add new nodes.
+* ForceNodeCountRule  
+  Regardless of any resource usage and Hadoop configuration it will force the number of nodes to the specified.
+
+Every rule can be configured to not to scale above a limit preventing to create a limitless cluster. In one policy multiple rules can be specified
+and the first rule which will change the size of the cluster will apply. In your own implementation you can aggregate different cluster metrics
+to create the exact rule which serves you the best.
