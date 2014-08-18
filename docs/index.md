@@ -80,6 +80,10 @@ is that you can provide your own implementation and without any classpath magic 
   If the pending containers(resource requests) exceed a certain limit based on the container/node rate it will add new nodes.
 * ForceNodeCountRule  
   Regardless of any resource usage and Hadoop configuration it will force the number of nodes to the specified.
+* LostNodesRule
+  If the lost nodes exceed a certain limit it will add new nodes.
+* UnhealthyNodesRule
+  If the unhealthy nodes exceed a certain limit it will add new nodes.
 
 Every rule can be configured to not to scale above a limit preventing to create a limitless cluster. In one policy multiple rules can be specified
 and the first rule which will change the size of the cluster will apply. In your own implementation you can aggregate different cluster metrics
