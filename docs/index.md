@@ -98,4 +98,98 @@ _Note: not all of the features above are supported in the first `public beta` ve
 
 Periscope brings in the capability to reconfigure a running cluster - in particular resource properties heavily used. These properties currently are mostly related to the Capacity Scheduler configurations, but as we add functionality to Periscope this set of properties will constantly increase.
 
+##QuickStart and installation
 
+##Releases, future plans
+
+##Contribution
+
+So you are about to contribute to Periscope? Awesome! There are many different ways in which you can contribute. We strongly value your feedback, questions, bug reports, and feature requests.
+Periscope consist of the following main projects:
+
+
+
+###Periscope API
+
+Available: <a href=https://periscope-api.sequenceiq.com>https://periscope-api.sequenceiq.com</a>
+
+GitHub: <a href=https://github.com/sequenceiq/periscope>https://github.com/sequenceiq/periscope</a>
+
+
+###Periscope documentation
+
+Product documentation: <a href=http://sequenceiq.com/periscope>http://sequenceiq.com/periscope</a>
+
+GitHub: <a href=https://github.com/sequenceiq/periscope/blob/master/docs/index.md>https://github.com/sequenceiq/periscope/blob/master/docs/index.md</a>
+
+
+API documentation: <a href=http://docs.periscope.apiary.io>http://docs.periscope.apiary.io</a>
+
+GitHub: <a href=https://github.com/sequenceiq/periscope/blob/master/apiary.apib>https://github.com/sequenceiq/periscope/blob/master/apiary.apib</a>
+
+###Ways to contribute
+
+* Use Periscope and Cloudbreak
+* Submit a GitHub issue to the appropriate GitHub repository.
+* Submit a new feature request (as a GitHub issue).
+* Submit a code fix for a bug.
+* Submit a unit test.
+* Code review pending pull requests and bug fixes.
+* Tell others about these projects.
+
+###Contributing code
+
+We are always thrilled to receive pull requests, and do our best to process them as fast as possible. Not sure if that typo is worth a pull request? Do it! We will appreciate it.
+The Periscope projects are open source and developed/distributed under the [Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+If you wish to contribute to Periscope (which you're very welcome and encouraged to do so) then you must agree to release the rights of your source under this license.
+
+####Creating issues
+
+Any significant improvement should be documented as a GitHub issue before starting to work on it. Please use the appropriate labels - bug, enhancement, etc - this helps while creating the release notes for a version release.
+Before submitting issues please check for duplicate or similar issues. If you are unclear about an issue please feel free to [contact us](https://groups.google.com/forum/#!forum/periscope).
+
+####Discuss your design
+
+We recommend discussing your plans on the [mailing list](https://groups.google.com/forum/#!forum/periscope) before starting to code - especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give feedback on your design, and maybe point out if someone else is working on the same thing.
+
+####Conventions
+
+Please write clean code. Universally formatted code promotes ease of writing, reading, and maintenance.
+* Do not use @author tags.
+
+* New classes must match our dependency mechanism.
+
+* Code must be formatted according to our [formatter](https://github.com/sequenceiq/periscope/blob/master/config/eclipse_formatter.xml).
+
+* Code must be checked with our [checkstyle](https://github.com/sequenceiq/periscope/tree/master/config/checkstyle).
+
+* Contributions must pass existing unit tests.
+
+* The code changes must be accompanied by unit tests. In cases where unit tests are not possible or don’t make sense an explanation should be provided.
+
+* New unit tests should be provided to demonstrate bugs and fixes (use Mockito whenever possible).
+
+* The tests should be named *Test.java.
+
+* Use slf4j instead of commons logging as the logging facade.
+
+
+###Thank you
+Huge thanks go to the contributors from the community who have been actively working with the SequenceIQ team. Kudos for that.
+
+###Jobs
+Do you like what we are doing? We are looking for exceptional software engineers to join our development team. Would you like to work with others in the open source community?
+Please consider submitting your resume and applying for open positions at jobs@sequenceiq.com.
+
+
+### Legal
+
+*Brought to you courtesy of our legal counsel.*
+
+Use and transfer of Cloudbreak may be subject to certain restrictions by the
+United States and other governments.  
+It is your responsibility to ensure that your use and/or transfer does not
+violate applicable laws.
+
+### Licensing
+Cloudbreak is licensed under the Apache License, Version 2.0. See [LICENSE](http://www.apache.org/licenses/LICENSE-2.0.html) for full license text.
