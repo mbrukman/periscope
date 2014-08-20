@@ -27,7 +27,12 @@ Focusing on higher level building blocks as queue depth, YARN containers, etc ac
 
 Periscope works with two types of Hadoop clusters: `static` and `dynamic`. Periscope does not require any pre-installation - the only thing it requires is to be `attached` to an Ambari server's REST API.
 
-##Clusters
+##Building blocks
+
+###Clusters
+A Hadoop cluster is a set of components and services launched in order to store, analyze and process unstructured data. Periscope can work with any Hadoop 2/ YARN cluster provisioned with Apache Ambari, and supports any YARN application.
+As highlighted before, Periscope can apply SLA policies to `static` and `autoscaling` clusters. Due to flexibility supported by cloud based Hadoop deployments, we suggest to link Periscope with [Cloudbreak](http://sequenceiq.com/cloudbreak/) and apply policy based `autoscaling` to your cluster.
+
 
 ### Static clusters
 From Periscope point of view we consider a cluster `static` when the cluster capacity can't be increased horizontally.
@@ -59,11 +64,6 @@ Given the option of provisioning or decommissioning cluster nodes on the fly, Pe
   7. Support for distributed (but not YARN ready) applications using Apache Slider
   8. Attach priorities to SLAs
 _Note: not all of the features above are supported in the first `public beta` version. There are dependencies we contributed to Hadoop, Ambari and YARN and they will be included in the next releases (1.7 and 2.6)_
-##Building blocks
-
-###Clusters
-A Hadoop cluster is a set of components and services launched in order to store, analyze and process unstructured data. Periscope can work with any Hadoop 2/ YARN cluster provisioned with Apache Ambari, and supports any YARN application.
-As highlighted before, Periscope can apply SLA policies to `static` and `autoscaling` clusters. Due to flexibility supported by cloud based Hadoop deployments, we suggest to link Periscope with [Cloudbreak](http://sequenceiq.com/cloudbreak/) and apply policy based `autoscaling` to your cluster.
 
 ###Alarms
 An alarm watches a `metric` over a specified time period, and used by one or more action or scaling policy based on the value of the metric relative to a given threshold over a number of time periods. In case Periscope raises an alarm an action (e.g. sending an email) or a scaling policy is triggered. Alarms are based on metrics. The current supported `metrics` are: 
