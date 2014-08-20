@@ -33,8 +33,7 @@ Periscope works with two types of Hadoop clusters: `static` and `dynamic`. Peris
 A Hadoop cluster is a set of components and services launched in order to store, analyze and process unstructured data. Periscope can work with any Hadoop 2/ YARN cluster provisioned with Apache Ambari, and supports any YARN application.
 As highlighted before, Periscope can apply SLA policies to `static` and `autoscaling` clusters. Due to flexibility supported by cloud based Hadoop deployments, we suggest to link Periscope with [Cloudbreak](http://sequenceiq.com/cloudbreak/) and apply policy based `autoscaling` to your cluster.
 
-
-### Static clusters
+**Static clusters**
 From Periscope point of view we consider a cluster `static` when the cluster capacity can't be increased horizontally.
 This means that the hardware resources are already given - and the throughput can't be increased by adding new nodes.
 Periscope introspects the job submission process, monitors the applications and applies the following SLAs:
@@ -48,7 +47,7 @@ Periscope introspects the job submission process, monitors the applications and 
 
 _Note: not all of the features above are supported in the first `public beta` version. There are dependencies we contributed to Hadoop, Ambari and YARN and they will be included in the next releases (1.7 and 2.6)_
 
-### Autoscaling clusters
+**Autoscaling clusters**
 From Periscope point of view we consider a cluster `dynamic` when the cluster capacity can be increased horizontally.
 This means that nodes can be added or removed on the fly - thus the cluster’s throughput can be increased or decreased based on the cluster load and scheduled applications.
 Periscope works with [Cloudbreak](http://sequenceiq.com/cloudbreak/) to add or remove nodes from the cluster based on the SLA policies and thus continuously provide a high *quality of service* for the multi-tenand Hadoop cluster.
