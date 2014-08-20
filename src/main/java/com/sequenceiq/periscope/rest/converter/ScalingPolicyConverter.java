@@ -19,7 +19,7 @@ public class ScalingPolicyConverter extends AbstractConverter<ScalingPolicyJson,
     public ScalingPolicy convert(ScalingPolicyJson source) {
         ScalingPolicy policy = new ScalingPolicy();
         policy.setAdjustmentType(source.getAdjustmentType());
-        long alarmId = source.getAlarmId();
+        String alarmId = source.getAlarmId();
         Alarm alarm = alarmRepository.findOne(alarmId);
         if (alarm == null) {
             throw new AlarmNotFoundException(alarmId);

@@ -40,7 +40,7 @@ public class AlarmController {
     }
 
     @RequestMapping(value = "/{alarmId}", method = RequestMethod.DELETE)
-    public ResponseEntity<AlarmsJson> deleteAlarm(@PathVariable String clusterId, @PathVariable long alarmId)
+    public ResponseEntity<AlarmsJson> deleteAlarm(@PathVariable String clusterId, @PathVariable String alarmId)
             throws ClusterNotFoundException {
         return createAlarmsResponse(alarmService.deleteAlarm(clusterId, alarmId));
     }

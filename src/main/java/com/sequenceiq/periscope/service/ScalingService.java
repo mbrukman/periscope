@@ -51,11 +51,11 @@ public class ScalingService {
         return getScalingPolicies(clusterDetails);
     }
 
-    public ScalingPolicies deletePolicy(String clusterId, long policyId) throws ClusterNotFoundException {
+    public ScalingPolicies deletePolicy(String clusterId, String policyId) throws ClusterNotFoundException {
         ClusterDetails clusterDetails = clusterDetailsRepository.findOne(clusterId);
         for (Alarm alarm : clusterDetails.getAlarms()) {
             ScalingPolicy scalingPolicy = alarm.getScalingPolicy();
-            if (scalingPolicy != null && scalingPolicy.getId() == policyId) {
+            if (scalingPolicy != null && scalingPolicy.getId().equals(policyId)) {
                 alarm.setScalingPolicy(null);
                 break;
             }

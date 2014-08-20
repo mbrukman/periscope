@@ -6,19 +6,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.sequenceiq.periscope.jpa.StringIdGenerator;
 
 @Entity
 public class Alarm {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "template_generator")
-    @SequenceGenerator(name = "template_generator", sequenceName = "sequence_table")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stringGenerator")
+    @GenericGenerator(name = "stringGenerator", strategy = "com.sequenceiq.periscope.jpa.StringIdGenerator",
+            parameters = @Parameter(name = StringIdGenerator.FIELD_NAME, value = "alarmName"))
+    private String id;
     private String alarmName;
     private String description;
     private Metric metric;
@@ -98,11 +102,11 @@ public class Alarm {
         this.scalingPolicy = scalingPolicy;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

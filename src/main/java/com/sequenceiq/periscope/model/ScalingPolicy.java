@@ -6,29 +6,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.sequenceiq.periscope.jpa.StringIdGenerator;
 
 @Entity
 public class ScalingPolicy {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "template_generator")
-    @SequenceGenerator(name = "template_generator", sequenceName = "sequence_table")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stringGenerator")
+    @GenericGenerator(name = "stringGenerator", strategy = "com.sequenceiq.periscope.jpa.StringIdGenerator",
+            parameters = @Parameter(name = StringIdGenerator.FIELD_NAME, value = "name"))
+    private String id;
     private String name;
     private AdjustmentType adjustmentType;
     private int scalingAdjustment;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Alarm alarm;
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

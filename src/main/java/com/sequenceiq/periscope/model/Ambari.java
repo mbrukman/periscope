@@ -4,15 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.sequenceiq.periscope.jpa.StringIdGenerator;
 
 @Entity
 public class Ambari {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "template_generator")
-    @SequenceGenerator(name = "template_generator", sequenceName = "sequence_table")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stringGenerator")
+    @GenericGenerator(name = "stringGenerator", strategy = "com.sequenceiq.periscope.jpa.StringIdGenerator",
+            parameters = @Parameter(name = StringIdGenerator.BASE_NAME, value = "ambari"))
+    private String id;
     private String host;
     private String port;
     private String user;
@@ -28,11 +33,11 @@ public class Ambari {
         this.pass = pass;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

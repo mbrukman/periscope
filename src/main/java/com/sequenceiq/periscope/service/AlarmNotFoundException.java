@@ -2,13 +2,13 @@ package com.sequenceiq.periscope.service;
 
 public class AlarmNotFoundException extends RuntimeException {
 
-    private final long id;
+    private final String id;
 
-    public AlarmNotFoundException(long id) {
+    public AlarmNotFoundException(String id) {
         this.id = id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 }

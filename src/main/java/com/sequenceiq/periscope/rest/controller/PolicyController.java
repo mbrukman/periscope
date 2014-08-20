@@ -37,7 +37,7 @@ public class PolicyController {
     }
 
     @RequestMapping(value = "/{policyId}", method = RequestMethod.DELETE)
-    public ResponseEntity<ScalingPoliciesJson> deletePolicy(@PathVariable String clusterId, @PathVariable long policyId)
+    public ResponseEntity<ScalingPoliciesJson> deletePolicy(@PathVariable String clusterId, @PathVariable String policyId)
             throws ClusterNotFoundException {
         return createScalingPoliciesJsonResponse(scalingService.deletePolicy(clusterId, policyId));
     }

@@ -34,7 +34,7 @@ public class AlarmService {
         return clusterService.get(clusterId).getAlarms();
     }
 
-    public List<Alarm> deleteAlarm(String clusterId, long alarmId) throws ClusterNotFoundException {
+    public List<Alarm> deleteAlarm(String clusterId, String alarmId) throws ClusterNotFoundException {
         Cluster cluster = clusterService.get(clusterId);
         Alarm alarm = alarmRepository.findOne(alarmId);
         if (alarm == null) {
