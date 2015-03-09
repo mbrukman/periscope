@@ -3,9 +3,14 @@ package com.sequenceiq.periscope.monitor;
 public final class MonitorUpdateRate {
 
     /**
-     * Every 2 minutes.
+     * Every 5 minutes.
      */
-    public static final String APP_REPORT_UPDATE_RATE_CRON = "0 0/2 * * * ?";
+    public static final String APP_REPORT_UPDATE_RATE_CRON = "0 0/5 * * * ?";
+
+    /**
+     * Every minutes.
+     */
+    public static final String DFS_UPDATE_RATE_CRON = "0 0/1 * * * ?";
 
     /**
      * Every 20 seconds.

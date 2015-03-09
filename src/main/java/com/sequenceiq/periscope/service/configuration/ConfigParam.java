@@ -8,7 +8,8 @@ public enum ConfigParam {
     YARN_RM_SCHEDULER_ADDRESS("yarn.resourcemanager.scheduler.address"),
     YARN_SCHEDULER_ADDRESS("yarn.resourcemanager.scheduler.address"),
     RM_CONN_MAX_WAIT_MS("yarn.resourcemanager.connect.max-wait.ms"),
-    RM_CONN_RETRY_INTERVAL_MS("yarn.resourcemanager.connect.retry-interval.ms");
+    RM_CONN_RETRY_INTERVAL_MS("yarn.resourcemanager.connect.retry-interval.ms"),
+    NAMENODE_WEB_ADDRESS("dfs.namenode.http-address");
 
     private final String key;
 

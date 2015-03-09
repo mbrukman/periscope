@@ -54,7 +54,8 @@ public class AmbariConfigurationService {
 
     private static String replaceHostName(AmbariClient ambariClient, Map.Entry<String, String> entry) {
         String result = entry.getValue();
-        if (entry.getKey().startsWith("yarn.resourcemanager")) {
+        String key = entry.getKey();
+        if (key.contains("address")) {
             int portStartIndex = result.indexOf(":");
             if (portStartIndex != -1) {
                 String internalAddress = result.substring(0, portStartIndex);
